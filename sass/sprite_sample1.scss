@@ -1,0 +1,5 @@
+@import "compass";
+
+$sprite_images-sprite-dimensions:true;
+@import "sprite_images/*.png";
+@include all-sprite_images-sprites;

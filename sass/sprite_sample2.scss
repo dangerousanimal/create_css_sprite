@@ -1,0 +1,25 @@
+@import "compass";
+
+//スプライト画像の生成、戻り値としてbackgroundのurlが返ってくる
+$sprite_sample_img:sprite-map("sprite_images/*.png");
+
+$base-class: sprite-map-name($sprite_sample_img);
+
+
+.#{$base-class}{
+	display: block;
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
+	background:$sprite_sample_img no-repeat;
+	@include background-size(image-width(sprite-path($sprite_sample_img)) image-height(sprite-path($sprite_sample_img)));
+}
+
+//sprite-map, sprite-positionは関数、sprite-dimensionはmixinなので、includeする必要あり
+
+@each $sprites in sprite-names($sprite_sample_img){
+	.#{$sprites}{
+		@include sprite-dimensions($sprite_sample_img, $sprites);
+		background-position:sprite-position($sprite_sample_img, $sprites);
+	}
+}

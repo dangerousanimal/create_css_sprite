@@ -1,0 +1,30 @@
+@mixin retina-sprites_style($map, $dimensions: false){
+
+	$base_sprite_class: sprite-map-name($map);
+
+	.#{$base_sprite_class}{
+		display:block;
+
+		//image replacement
+		overflow:hidden;
+		text-indent:100%;
+		white-space:nowrap;
+		
+		background: $map no-repeat;
+		@include background-size(ceil(image-width(sprite-path($map)) / 2) ceil(image-height(sprite-path($map)) / 2));
+	}
+
+	@each $sprite in sprite-names($map){
+
+		.#{$sprite}{
+		
+		  @if $dimensions{
+		    width: ceil(image-width(sprite-file($map, $sprite)) / 2);
+		    height: ceil(image-height(sprite-file($map, $sprite)) / 2);
+		  }
+
+		  $position: sprite-position($map, $sprite);
+		  background-position: ceil(nth($position, 1) / 2) ceil(nth($position, 2) / 2);
+		}
+	}
+}

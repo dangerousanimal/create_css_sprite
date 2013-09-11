@@ -1,0 +1,41 @@
+.sprite_images {
+  display: block;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  background: url('../images/sprite_images-s036833e88e.png') no-repeat;
+  -webkit-background-size: 50px 246px;
+  -moz-background-size: 50px 246px;
+  -o-background-size: 50px 246px;
+  background-size: 50px 246px;
+}
+
+.sprite_img1 {
+  height: 46px;
+  width: 50px;
+  background-position: 0 0;
+}
+
+.sprite_img2 {
+  height: 50px;
+  width: 50px;
+  background-position: 0 -96px;
+}
+
+.sprite_img3 {
+  height: 50px;
+  width: 50px;
+  background-position: 0 -46px;
+}
+
+.sprite_img4 {
+  height: 50px;
+  width: 48px;
+  background-position: 0 -146px;
+}
+
+.sprite_img5 {
+  height: 50px;
+  width: 34px;
+  background-position: 0 -196px;
+}
