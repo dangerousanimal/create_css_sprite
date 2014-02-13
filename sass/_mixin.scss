@@ -1,30 +1,72 @@
-@mixin retina-sprites_style($map, $dimensions: false){
+/**
+* Generate CSS Sprite
+* 
+* Examples
+*
+* @import 'compass';
+* @import 'mixin' ;
+*
+* $sprite_img : sprite-map("sprite_images/*.png");
+*
+* @include normal_sprites_style($sprite_img);
+*
+*/
 
-	$base_sprite_class: sprite-map-name($map);
+@mixin normal_sprites_style($map) {
 
-	.#{$base_sprite_class}{
-		display:block;
+  $base-class: sprite-map-name($map);
 
-		//image replacement
-		overflow:hidden;
-		text-indent:100%;
-		white-space:nowrap;
-		
-		background: $map no-repeat;
-		@include background-size(ceil(image-width(sprite-path($map)) / 2) ceil(image-height(sprite-path($map)) / 2));
-	}
+  .#{$base-class} {
+    display: block;
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    background: $map no-repeat;
+    @include background-size(image-width(sprite-path($map)) image-height(sprite-path($map)));
+  }
 
-	@each $sprite in sprite-names($map){
+  @each $sprite in sprite-names($map) {
+    .#{$sprite} {
+      @include sprite-dimensions($map, $sprite);
+      background-position: sprite-position($map, $sprite);
+    }
+  }
+}
 
-		.#{$sprite}{
-		
-		  @if $dimensions{
-		    width: ceil(image-width(sprite-file($map, $sprite)) / 2);
-		    height: ceil(image-height(sprite-file($map, $sprite)) / 2);
-		  }
+/**
+* Generate CSS Sprite for Retina Display
+* 
+* Examples
+*
+* @import 'compass';
+* @import 'mixin';
+*
+* $sprite_img : sprite-map("sprite_images/*.png");
+*
+* @include retina_sprites_style($sprite_img);
+*
+*/
 
-		  $position: sprite-position($map, $sprite);
-		  background-position: ceil(nth($position, 1) / 2) ceil(nth($position, 2) / 2);
-		}
-	}
+@mixin retina_sprites_style($map) {
+
+  $base_sprite_class: sprite-map-name($map);
+
+  .#{$base_sprite_class} {
+    display: block;
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    background: $map no-repeat;
+    @include background-size(ceil(image-width(sprite-path($map)) / 2) ceil(image-height(sprite-path($map)) / 2));
+  }
+
+  @each $sprite in sprite-names($map) {
+
+    .#{$sprite} {
+      width: ceil(image-width(sprite-file($map, $sprite)) / 2);
+      height: ceil(image-height(sprite-file($map, $sprite)) / 2);
+      $position: sprite-position($map, $sprite);
+      background-position: ceil(nth($position, 1) / 2) ceil(nth($position, 2) / 2);
+    }
+  }
 }
