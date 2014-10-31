@@ -5,7 +5,6 @@ $sprite_sample_img:sprite-map("sprite_images/*.png");
 
 $base-class: sprite-map-name($sprite_sample_img);
 
-
 .#{$base-class}{
 	display: block;
 	overflow: hidden;

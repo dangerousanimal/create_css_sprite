@@ -1,6 +1,6 @@
 /**
 * Generate CSS Sprite
-* 
+*
 * Examples
 *
 * @import 'compass';
@@ -13,7 +13,6 @@
 */
 
 @mixin normal_sprites_style($map) {
-
   $base-class: sprite-map-name($map);
 
   .#{$base-class} {
@@ -35,7 +34,7 @@
 
 /**
 * Generate CSS Sprite for Retina Display
-* 
+*
 * Examples
 *
 * @import 'compass';
@@ -48,7 +47,6 @@
 */
 
 @mixin retina_sprites_style($map) {
-
   $base_sprite_class: sprite-map-name($map);
 
   .#{$base_sprite_class} {
@@ -61,7 +59,6 @@
   }
 
   @each $sprite in sprite-names($map) {
-
     .#{$sprite} {
       width: ceil(image-width(sprite-file($map, $sprite)) / 2);
       height: ceil(image-height(sprite-file($map, $sprite)) / 2);

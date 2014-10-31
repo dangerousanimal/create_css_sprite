@@ -1,12 +1,38 @@
+/**
+* Generate CSS Sprite
+*
+* Examples
+*
+* @import 'compass';
+* @import 'mixin' ;
+*
+* $sprite_img : sprite-map("sprite_images/*.png");
+*
+* @include normal_sprites_style($sprite_img);
+*
+*/
+/**
+* Generate CSS Sprite for Retina Display
+*
+* Examples
+*
+* @import 'compass';
+* @import 'mixin';
+*
+* $sprite_img : sprite-map("sprite_images/*.png");
+*
+* @include retina_sprites_style($sprite_img);
+*
+*/
 .sprite_images {
   display: block;
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
-  background: url('../images/sprite_images-s036833e88e.png') no-repeat;
-  -webkit-background-size: 25px 123px;
+  background: url('../images/sprite_images-sff02f15f23.png') no-repeat;
   -moz-background-size: 25px 123px;
   -o-background-size: 25px 123px;
+  -webkit-background-size: 25px 123px;
   background-size: 25px 123px;
 }
 
@@ -19,13 +45,13 @@
 .sprite_img2 {
   width: 25px;
   height: 25px;
-  background-position: 0 -48px;
+  background-position: 0 -23px;
 }
 
 .sprite_img3 {
   width: 25px;
   height: 25px;
-  background-position: 0 -23px;
+  background-position: 0 -48px;
 }
 
 .sprite_img4 {
