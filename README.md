@@ -1,4 +1,4 @@
-#create_css_sprite
+# create_css_sprite
 
 ## How to use
 
